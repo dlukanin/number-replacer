@@ -1,0 +1,29 @@
+{
+  "name": "number-replacer",
+  "version": "0.0.1",
+  "description": "Simple module for replacing/masking numbers (e.g. for security reasons)",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dlukanin/number-replacer.git"
+  },
+  "keywords": [
+    "number",
+    "hide",
+    "mask",
+    "replacer"
+  ],
+  "author": "dylukanin@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dlukanin/number-replacer/issues"
+  },
+  "homepage": "https://github.com/dlukanin/number-replacer#readme",
+  "devDependencies": {
+    "chai": "^4.0.0",
+    "mocha": "^3.4.2"
+  }
+}
