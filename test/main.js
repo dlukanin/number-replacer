@@ -27,6 +27,8 @@ describe('replacer 2', function() {
     });
 
     it('should fail', function() {
-
+        expect(replace.bind(null, 'asd')).to.throw('Value should be a number');
+        expect(replace.bind(null, 'qwe.rty')).to.throw('Value should be a number');
+        expect(replace.bind(null, '123.456.789')).to.throw('Value should be a number');
     });
 });
