@@ -1,16 +1,38 @@
 var chai = require('chai');
 var expect = chai.expect;
+
 var replace = require('../lib/replace.js').replace;
 
 describe('replacer', function() {
-    it('should replace numbers in simple number value', function() {
-        expect(replace(123456)).to.eq('***456');
-        expect(replace('123456')).to.eq('***456');
+    describe('with default args', function() {
+        it('should replace numbers in simple number value', function() {
+            expect(replace(123456)).to.eq('***456');
+            expect(replace('123456')).to.eq('***456');
+        });
+
+        it('should replace numbers in float', function() {
+            expect(replace(12.345)).to.eq('****45');
+            expect(replace('12.345')).to.eq('****45');
+        });
     });
 
-    it('should replace numbers in float', function() {
-        expect(replace(12.345)).to.eq('****45');
-        expect(replace('12.345')).to.eq('****45');
+    describe('with custom args', function() {
+        var curriedReplace = function(value) {
+            return replace(value, {replaceCount: 5, replaceSymbol: '!', numberDotSymbol: ','});
+        };
+
+        it('should replace numbers in simple number value', function() {
+            expect(curriedReplace(123456)).to.eq('!!!!!6');
+            expect(curriedReplace('123456')).to.eq('!!!!!6');
+        });
+
+        it('should replace numbers in float', function() {
+            expect(curriedReplace(12.3456)).to.eq('!!!!!!6');
+        });
+
+        it('should replace numbers in string with custom dot', function() {
+            expect(curriedReplace('12,3456')).to.eq('!!!!!!6');
+        });
     });
 
     it('should fail', function() {
