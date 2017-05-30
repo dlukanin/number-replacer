@@ -2,7 +2,7 @@ var chai = require('chai');
 var expect = chai.expect;
 var replace = require('../lib/replace.js').replace;
 
-describe('replacer 2', function() {
+describe('replacer', function() {
     it('should replace numbers in simple number value', function() {
         expect(replace(123456)).to.eq('***456');
         expect(replace('123456')).to.eq('***456');
@@ -23,5 +23,8 @@ describe('replacer 2', function() {
         expect(replace.bind(null, undefined)).to.throw(errorMessage);
         expect(replace.bind(null, {})).to.throw(errorMessage);
         expect(replace.bind(null, {toString: function() {return '12.345'}})).to.throw(errorMessage);
+        expect(replace.bind(null, Infinity)).to.throw(errorMessage);
+        expect(replace.bind(null, -Infinity)).to.throw(errorMessage);
+        expect(replace.bind(null, NaN)).to.throw(errorMessage);
     });
 });
