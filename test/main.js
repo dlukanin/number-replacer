@@ -14,6 +14,13 @@ describe('replacer', function() {
             expect(replace(12.345)).to.eq('****45');
             expect(replace('12.345')).to.eq('****45');
         });
+
+        it('should replace all symbols if number length < replace count', function() {
+            expect(replace(12)).to.eq('**');
+            expect(replace('1.2')).to.eq('***');
+            expect(replace(1)).to.eq('*');
+            expect(replace('1')).to.eq('*');
+        });
     });
 
     describe('with custom args', function() {
@@ -32,6 +39,13 @@ describe('replacer', function() {
 
         it('should replace numbers in string with custom dot', function() {
             expect(curriedReplace('12,3456')).to.eq('!!!!!!6');
+        });
+
+        it('should replace all symbols if number length < replace count', function() {
+            expect(curriedReplace(123)).to.eq('!!!');
+            expect(curriedReplace('1,23')).to.eq('!!!!');
+            expect(curriedReplace(1)).to.eq('!');
+            expect(curriedReplace('1')).to.eq('!');
         });
     });
 
