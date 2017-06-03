@@ -4,7 +4,9 @@
   "description": "Simple module for replacing/masking numbers (e.g. for security reasons)",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/main.js"
+    "test": "mocha test/main.js",
+    "build": "babel src -d lib",
+    "watch": "babel src -w -d lib"
   },
   "repository": {
     "type": "git",
@@ -23,6 +25,8 @@
   },
   "homepage": "https://github.com/dlukanin/number-replacer#readme",
   "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.5.1",
     "chai": "^4.0.0",
     "mocha": "^3.4.2"
   }
