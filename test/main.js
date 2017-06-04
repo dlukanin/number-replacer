@@ -47,6 +47,12 @@ describe('replacer', function() {
             expect(curriedReplace(1)).to.eq('!');
             expect(curriedReplace('1')).to.eq('!');
         });
+
+        it('scientific notation', function() {
+            expect(replace(1e4)).to.eq('***00');
+            expect(replace(1e+4)).to.eq('***00');
+            expect(replace(1e-4)).to.eq('****01');
+        });
     });
 
     it('should fail', function() {
