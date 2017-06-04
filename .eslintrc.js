@@ -1,6 +1,11 @@
 module.exports = {
+    "parserOptions": {
+        "ecmaVersion": 6
+    },
     "env": {
-        "browser": true
+        "browser": true,
+        "node": true,
+        "jasmine": true
     },
     "extends": "eslint:recommended",
     "rules": {
@@ -159,11 +164,9 @@ module.exports = {
         "no-sync": "error",
         "no-tabs": "error",
         "no-template-curly-in-string": "error",
-        "no-ternary": "error",
         "no-throw-literal": "error",
         "no-trailing-spaces": "error",
         "no-undef-init": "error",
-        "no-undefined": "error",
         "no-underscore-dangle": "off",
         "no-unmodified-loop-condition": "error",
         "no-unneeded-ternary": "error",
@@ -202,7 +205,6 @@ module.exports = {
         "prefer-rest-params": "error",
         "prefer-spread": "error",
         "prefer-template": "error",
-        "quote-props": "error",
         "quotes": [
             "error",
             "single"
@@ -220,8 +222,6 @@ module.exports = {
             }
         ],
         "sort-imports": "error",
-        "sort-keys": "error",
-        "sort-vars": "error",
         "space-before-blocks": "error",
         "space-before-function-paren": "off",
         "space-in-parens": [
