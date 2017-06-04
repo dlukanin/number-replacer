@@ -29,7 +29,10 @@ function replace(value, options = {}) {
     return _replace(newValue, numberDotSymbol, replaceCount, replaceSymbol);
 }
 
-function _isValid(value, numberDotSymbol) {
+function _isValid(value, numberDotSymbol) { // TODO throw exception instead of returning boolean
+    if (numberDotSymbol.length !== 1) {
+        return false;
+    }
     return typeof value === 'string' && new RegExp(`^\\d+(\\${numberDotSymbol}\\d+)?$`).test(value);
 }
 

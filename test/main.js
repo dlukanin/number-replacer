@@ -56,9 +56,10 @@ describe('replacer', function() {
         });
 
         it('scientific notation', function() {
-            expect(replace(1e4)).to.eq('***00');
-            expect(replace(1e+4)).to.eq('***00');
-            expect(replace(1e-4)).to.eq('****01');
+            expect(replace(1e4)).toBe('***00');
+            expect(replace(1e+4)).toBe('***00');
+            expect(replace(1e-4)).toBe('****01');
+            expect(replace('1e+4')).toBe('1e+4');
         });
     });
 
