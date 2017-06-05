@@ -1,6 +1,6 @@
-var DEFAULT_REPLACE_COUNT = 3;
-var DEFAULT_REPLACE_SYMBOL = '*';
-var DEFAULT_NUMBER_DOT_SYMBOL = '.';
+const DEFAULT_REPLACE_COUNT = 3;
+const DEFAULT_REPLACE_SYMBOL = '*';
+const DEFAULT_NUMBER_DOT_SYMBOL = '.';
 
 /**
  * Replaces numbers in passed value according to options
@@ -13,14 +13,14 @@ var DEFAULT_NUMBER_DOT_SYMBOL = '.';
  */
 function replace(value, options = {}) {
     if (value === null || typeof value === 'undefined') {
-        return value;
+        throw new Error('Value is not a valid number');
     }
 
     const newValue = value.toString();
     const numberDotSymbol = options.numberDotSymbol || DEFAULT_NUMBER_DOT_SYMBOL;
 
     if (!_isValid(newValue, numberDotSymbol)) {
-        return value;
+        throw new Error('Value is not a valid number');
     }
 
     const replaceCount = options.replaceCount || DEFAULT_REPLACE_COUNT;
@@ -29,10 +29,15 @@ function replace(value, options = {}) {
     return _replace(newValue, numberDotSymbol, replaceCount, replaceSymbol);
 }
 
-function _isValid(value, numberDotSymbol) { // TODO throw exception instead of returning boolean
+function _isValid(value, numberDotSymbol) {
+    if (value === null || typeof value === 'undefined') {
+        return false;
+    }
+
     if (numberDotSymbol.length !== 1) {
         return false;
     }
+
     return typeof value === 'string' && new RegExp(`^\\d+(\\${numberDotSymbol}\\d+)?$`).test(value);
 }
 
