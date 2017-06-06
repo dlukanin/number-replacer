@@ -52,7 +52,7 @@ describe('replacer', function() {
         });
 
         it('should not replace numbers in float (cause of custom dot symbol)', function() {
-            expect(() => curriedReplace(12.3456)).toThrow(new Error('Value is not a valid number'))
+            expect(() => curriedReplace(12.3456)).toThrow(new Error('Value is not a valid number'));
         });
 
         it('scientific notation', function() {
