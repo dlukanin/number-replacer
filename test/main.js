@@ -4,7 +4,7 @@ describe('replacer', function() {
     describe('with default args', function() {
         it('should replace numbers in simple number value', function() {
             expect(replace(123456)).toBe('***456');
-            expect(replace(123e3)).toBe('***000');
+            expect(replace(124e3)).toBe('***000');
             expect(replace('1234567')).toBe('***4567');
         });
 
@@ -52,23 +52,31 @@ describe('replacer', function() {
         });
 
         it('should not replace numbers in float (cause of custom dot symbol)', function() {
-            expect(curriedReplace(12.3456)).toBe(12.3456);
+            expect(() => curriedReplace(12.3456)).toThrow(new Error('Value is not a valid number'));
+        });
+
+        it('scientific notation', function() {
+            expect(replace(1e4)).toBe('***00');
+            expect(replace(1e+4)).toBe('***00');
+            expect(replace(1e-4)).toBe('****01');
+            expect(() => replace('1e+4')).toThrow(new Error('Value is not a valid number'));
         });
     });
 
     it('should fail', function() {
         const emptyObj = {};
         const invalidToStringObj = {toString: () => 123};
+        const errorMsg = 'Value is not a valid number';
 
-        expect(replace('asd')).toBe('asd');
-        expect(replace('qwe.rty')).toBe('qwe.rty');
-        expect(replace('123.456.789')).toBe('123.456.789');
-        expect(replace(null)).toBe(null);
-        expect(replace(undefined)).toBeUndefined();
-        expect(replace(emptyObj)).toBe(emptyObj);
-        expect(replace(Infinity)).toBe(Infinity);
-        expect(replace(-Infinity)).toBe(-Infinity);
-        expect(replace(NaN)).toBeNaN();
-        expect(replace(invalidToStringObj)).toBe(invalidToStringObj);
+        expect(() => replace('asd')).toThrow(new Error(errorMsg));
+        expect(() => replace('qwe.rty')).toThrow(new Error(errorMsg));
+        expect(() => replace('123.456.789')).toThrow(new Error(errorMsg));
+        expect(() => replace(null)).toThrow(new Error(errorMsg));
+        expect(() => replace(undefined)).toThrow(new Error(errorMsg));
+        expect(() => replace(emptyObj)).toThrow(new Error(errorMsg));
+        expect(() => replace(Infinity)).toThrow(new Error(errorMsg));
+        expect(() => replace(-Infinity)).toThrow(new Error(errorMsg));
+        expect(() => replace(NaN)).toThrow(new Error(errorMsg));
+        expect(() => replace(invalidToStringObj)).toThrow(new Error(errorMsg));
     });
 });
