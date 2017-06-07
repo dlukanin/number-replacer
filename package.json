@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dlukanin/number-replacer.git"
+    "url": "git+https://github.com/dlukanin/number-masker.git"
   },
   "keywords": [
     "number",
@@ -24,9 +24,9 @@
   "author": "dylukanin@gmail.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dlukanin/number-replacer/issues"
+    "url": "https://github.com/dlukanin/number-masker/issues"
   },
-  "homepage": "https://github.com/dlukanin/number-replacer#readme",
+  "homepage": "https://github.com/dlukanin/number-masker#readme",
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-preset-env": "^1.5.1",
