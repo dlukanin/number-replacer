@@ -1,0 +1,10 @@
+src
+spec
+.gitignore
+.idea
+.travis.yml
+karma.conf.js
+test-main.js
+tslint.json
+.babelrc
+.eslintrc.js

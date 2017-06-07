@@ -9,12 +9,14 @@ The options are:
 
 ## Examples
 ```
-replace(123456) === '***456';
-replace(12345e-3) === '****45';
-replace(123.456) === '****56';
+const replace = require('number-replacer).replace;
+
+replace(123456) === '***456'; // true
+replace(12345e-3) === '****45'; // true
+replace(123.456) === '****56'; //true
 replace('123,456', {
     replaceCount: 4,
     replaceSymbol: '?',
     numberDotSymbol: ','
-}) === '?????56';
+}) === '?????56'; // true
 ```
