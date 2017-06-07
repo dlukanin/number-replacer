@@ -1,7 +1,7 @@
 {
-  "name": "number-replacer",
+  "name": "number-masker",
   "version": "0.0.1",
-  "description": "Simple module for replacing/masking numbers (e.g. for security reasons)",
+  "description": "Simple module for replacing/masking numeric values (e.g. for security reasons)",
   "main": "index.js",
   "scripts": {
     "test": "jasmine",

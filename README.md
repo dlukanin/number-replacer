@@ -1,4 +1,6 @@
-# number-replacer
+# number-masker
+
+A simple module for masking numeric values.
 
 [![Build Status](https://travis-ci.org/dlukanin/number-replacer.svg?branch=master)](https://travis-ci.org/dlukanin/number-replacer)
 
@@ -11,7 +13,7 @@ The options are:
 
 ## Examples
 ```
-const replace = require('number-replacer).replace;
+const replace = require('number-masker).replace;
 
 replace(123456) === '***456'; // true
 replace(12345e-3) === '****45'; // true
