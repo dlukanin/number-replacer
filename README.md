@@ -24,3 +24,6 @@ replace('123,456', {
     numberDotSymbol: ','
 }) === '?????56'; // true
 ```
+
+## License (MIT)
+https://github.com/dlukanin/number-masker/blob/master/LICENSE
