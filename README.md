@@ -5,7 +5,7 @@ A simple module for masking numeric values.
 [![Build Status](https://travis-ci.org/dlukanin/number-replacer.svg?branch=master)](https://travis-ci.org/dlukanin/number-replacer)
 
 ## Usage
-Pass the value you want to replace symbols in to the `replacer` function. The function takes two arguments: a value itself and an option hash.
+Pass the value you want to replace symbols in to the `replace` function. The function takes two arguments: a value itself and an option hash.
 The options are:
 * replaceCount -- amount of digits to replace. Defaults to 3.
 * replaceSymbol -- symbol to replace digits with. Defaults to '*'.
