@@ -1,5 +1,6 @@
 src
 spec
+test
 .gitignore
 .idea
 .travis.yml
